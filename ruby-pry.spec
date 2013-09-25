@@ -53,16 +53,21 @@ Documentation for %{name}.
 %setup -q -n %{pkgname}-%{version}
 %{__sed} -i -e '1 s,#!.*ruby,#!%{__ruby},' bin/*
 
+%build
+# write .gemspec
+%__gem_helper spec
+
 %if %{with tests}
 bacon -Ispec -q spec/*_spec.rb
 %endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{ruby_vendorlibdir},%{_bindir},%{_mandir}/man1}
+install -d $RPM_BUILD_ROOT{%{ruby_vendorlibdir},%{ruby_specdir},%{_bindir},%{_mandir}/man1}
 cp -a lib/* $RPM_BUILD_ROOT%{ruby_vendorlibdir}
 cp -a bin/* $RPM_BUILD_ROOT%{_bindir}
 cp -a man/pry.1 $RPM_BUILD_ROOT%{_mandir}/man1
+cp -p %{pkgname}-%{version}.gemspec $RPM_BUILD_ROOT%{ruby_specdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -74,3 +79,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/pry.1*
 %{ruby_vendorlibdir}/pry.rb
 %{ruby_vendorlibdir}/pry
+%{ruby_specdir}/pry-%{version}.gemspec
