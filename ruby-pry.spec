@@ -5,13 +5,13 @@
 %define	pkgname	pry
 Summary:	An IRB alternative and runtime developer console
 Name:		ruby-%{pkgname}
-Version:	0.9.12
+Version:	0.9.12.2
 Release:	1
 License:	MIT
 Group:		Development/Languages
 Source0:	http://rubygems.org/downloads/%{pkgname}-%{version}.gem
-# Source0-md5:	b763952b281eeedb38743ee8ba1aaa64
-URL:		http://pry.github.com
+# Source0-md5:	c5d654869df4ba75715a399935fc8114
+URL:		http://pry.github.com/
 BuildRequires:	rpm-rubyprov
 BuildRequires:	rpmbuild(macros) >= 1.656
 BuildRequires:	sed >= 4.0
