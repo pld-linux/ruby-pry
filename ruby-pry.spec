@@ -59,9 +59,10 @@ bacon -Ispec -q spec/*_spec.rb
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{ruby_vendorlibdir},%{_bindir}}
+install -d $RPM_BUILD_ROOT{%{ruby_vendorlibdir},%{_bindir},%{_mandir}/man1}
 cp -a lib/* $RPM_BUILD_ROOT%{ruby_vendorlibdir}
 cp -a bin/* $RPM_BUILD_ROOT%{_bindir}
+cp -a man/pry.1 $RPM_BUILD_ROOT%{_mandir}/man1
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -70,5 +71,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README.markdown LICENSE CHANGELOG CONTRIBUTORS
 %attr(755,root,root) %{_bindir}/pry
-%{ruby_vendorlibdir}/%{pkgname}.rb
-%{ruby_vendorlibdir}/%{pkgname}
+%{_mandir}/man1/pry.1*
+%{ruby_vendorlibdir}/pry.rb
+%{ruby_vendorlibdir}/pry
