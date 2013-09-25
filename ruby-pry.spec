@@ -10,7 +10,7 @@ Release:	1
 License:	MIT
 Group:		Development/Languages
 Source0:	http://rubygems.org/downloads/%{pkgname}-%{version}.gem
-# Source0-md5:	-
+# Source0-md5:	b763952b281eeedb38743ee8ba1aaa64
 URL:		http://pry.github.com
 BuildRequires:	rpm-rubyprov
 BuildRequires:	rpmbuild(macros) >= 1.656
