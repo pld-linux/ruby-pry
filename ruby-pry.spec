@@ -6,7 +6,7 @@
 Summary:	An IRB alternative and runtime developer console
 Name:		ruby-%{pkgname}
 Version:	0.9.12.2
-Release:	1
+Release:	2
 License:	MIT
 Group:		Development/Languages
 Source0:	http://rubygems.org/downloads/%{pkgname}-%{version}.gem
